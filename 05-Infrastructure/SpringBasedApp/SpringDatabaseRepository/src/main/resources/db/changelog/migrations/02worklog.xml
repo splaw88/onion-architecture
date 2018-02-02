@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+           
+    <changeSet id="new_worklogs" author="splaw" >
+        <createTable schemaName="public" tableName="WORK_LOG">
+            <column name="work_log_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="start_date" type="DATE" />
+            <column name="time_spent_in_seconds" type="BIGINT"/>
+            <column name="description" type="varchar(255)"/>
+            <column name="worker_login" type="varchar(255)"/>
+        </createTable>
+        
+        <addForeignKeyConstraint baseColumnNames="worker_login"
+            baseTableName="WORK_LOG"
+            constraintName="fk_login"
+            referencedColumnNames="login"
+            referencedTableName="WORKER"/>
+        
+        <insert schemaName="public" tableName="WORK_LOG">
+            <column name="work_log_id" value="1"/>
+            <column name="start_date" valueDate="2017-10-01"/>
+            <column name="time_spent_in_seconds" value="3600"/>
+            <column name="description" value="Enviroment configuration"/>
+            <column name="worker_login" value="admin"/>
+        </insert>
+        <insert schemaName="public" tableName="WORK_LOG">
+            <column name="work_log_id" value="2"/>
+            <column name="start_date" valueDate="2017-10-02"/>
+            <column name="time_spent_in_seconds" value="60"/>
+            <column name="description" value="first login"/>
+            <column name="worker_login" value="user1"/>
+        </insert>
+        <insert schemaName="public" tableName="WORK_LOG">
+            <column name="work_log_id" value="3"/>
+            <column name="start_date" valueDate="2017-10-02"/>
+            <column name="time_spent_in_seconds" value="28800"/>
+            <column name="description" value="Sales report"/>
+            <column name="worker_login" value="user2"/>
+        </insert>
+        <insert schemaName="public" tableName="WORK_LOG">
+            <column name="work_log_id" value="4"/>
+            <column name="start_date" valueDate="2017-10-03"/>
+            <column name="time_spent_in_seconds" value="28800"/>
+            <column name="description" value="Meeting with client"/>
+            <column name="worker_login" value="user2"/>
+        </insert>
+        
+        <rollback>
+            <delete schemaName="public" tableName="WORK_LOG">
+                <where>1=1</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

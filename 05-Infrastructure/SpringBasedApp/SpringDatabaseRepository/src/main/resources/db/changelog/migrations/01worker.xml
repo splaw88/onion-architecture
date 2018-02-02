@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+           
+    <changeSet id="new_workers" author="splaw" >
+        
+        <createTable schemaName="public" tableName="WORKER">
+            <column name="login" type="varchar(255)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)" />
+            <column name="surname" type="varchar(255)"/>
+            <column name="email" type="varchar(255)" />
+        </createTable>
+        
+        <insert schemaName="public" tableName="WORKER">
+            <column name="login" value="admin"/>
+            <column name="name" value="Admin"/>
+            <column name="surname" value="Administrator"/>
+            <column name="email" value="admin@example.pl"/>
+        </insert>
+        <insert schemaName="public" tableName="WORKER">
+            <column name="login" value="user1"/>
+            <column name="name" value="John"/>
+            <column name="surname" value="Smith"/>
+            <column name="email" value="jsmith@example.pl"/>
+        </insert>
+        <insert schemaName="public" tableName="WORKER">
+            <column name="login" value="user2"/>
+            <column name="name" value="Samantha"/>
+            <column name="surname" value="Swan"/>
+            <column name="email" value="sswan@example.pl"/>
+        </insert>
+        
+        <rollback>
+            <delete schemaName="public" tableName="WORKER">
+                <where>1=1</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
