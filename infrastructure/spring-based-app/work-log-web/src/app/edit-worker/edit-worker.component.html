@@ -1,0 +1,5 @@
+<input type="text" placeholder="Name" [value] = "editedWorker.name" (input) = "editedWorker.name = $event.target.value"/>
+<input type="text" placeholder="Surname" [value] = "editedWorker.surname" (input) = "editedWorker.surname = $event.target.value"/>
+<input type="text" placeholder="Email" [value] = "editedWorker.email" (input) = "editedWorker.email = $event.target.value"/>
+
+<button (click)="editWorker()">Save</button>

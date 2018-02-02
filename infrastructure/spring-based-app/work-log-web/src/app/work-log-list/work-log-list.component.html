@@ -1,0 +1,14 @@
+<span> {{worker.name}} {{worker.surname}} {{worker.email}} </span><br/>
+
+<button (click)="goEditWorker()">Edit worker</button>
+<button (click)="deleteWorker()">Delete worker</button>
+<button (click)="goLogWork()">Log work</button>
+
+<ul>
+    <div *ngIf="workLogList && workLogList.length>0; else elseBlock">
+        <li *ngFor="let workLog of workLogList">
+    <app-work-log (deleted)="onDeleteEvent($event)" [workLog]="workLog"></app-work-log>
+    </li>
+</div>
+<ng-template #elseBlock>No worklogs to show</ng-template>
+</ul>

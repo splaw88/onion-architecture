@@ -1,0 +1,6 @@
+    <input type="text" placeholder="Login" (input) = "newWorker.login = $event.target.value"/>
+    <input type="text" placeholder="Name" (input) = "newWorker.name = $event.target.value"/>
+    <input type="text" placeholder="Surname" (input) = "newWorker.surname = $event.target.value"/>
+    <input type="text" placeholder="Email" (input) = "newWorker.email = $event.target.value"/>
+    
+    <button (click)="createWorker()">Create</button>

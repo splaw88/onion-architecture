@@ -1,0 +1,14 @@
+<div *ngIf="!editing; else elseBlock">
+    {{ workLog.startDate | date:'fullDate' }}<br/> 
+    {{ convertSecondsToTime(workLog.timeSpentInSeconds) }}<br/> 
+    {{ workLog.description }}<br/> 
+    <button (click)="enableEditing()">Edit</button>
+    <button (click)="deleteWorkLog()">Delete</button>
+</div>
+<ng-template #elseBlock>
+    <input type="text" placeholder="Start date YYYY-MM-DD" [value] = "workLog.startDate" (input) = "workLog.startDate = $event.target.value"/><br/> 
+    <input type="text" placeholder="Time spent in seconds" [value] = "workLog.timeSpentInSeconds" (input) = "workLog.timeSpentInSeconds = $event.target.value"/><br/> 
+    <input type="text" placeholder="Description" [value] = "workLog.description" (input) = "workLog.description = $event.target.value"/><br/> 
+    
+    <button (click)="logWork()">Save</button>
+<ng-template #elseBlock>

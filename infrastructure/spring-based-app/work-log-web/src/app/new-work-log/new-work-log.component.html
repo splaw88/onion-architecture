@@ -1,0 +1,5 @@
+<input type="text" placeholder="Start date YYYY-MM-DD" (input) = "newWorkLog.startDate = $event.target.value"/>
+<input type="text" placeholder="Time spent in seconds" (input) = "newWorkLog.timeSpentInSeconds = $event.target.value"/>
+<input type="text" placeholder="Description" (input) = "newWorkLog.description = $event.target.value"/>
+
+<button (click)="logWork()">Save</button>
