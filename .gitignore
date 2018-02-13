@@ -263,3 +263,15 @@ typings/
 
 #WorkLogWeb front dependencies
 infrastructure/spring-based-app/work-log-web/src/main/
+onion-architecture.iml
+application-logic/application-logic.iml
+application-services/application-services.iml
+domain/domain.iml
+infrastructure/infrastructure.iml
+infrastructure/spring-based-app/spring-based-app.iml
+infrastructure/spring-based-app/spring-application/spring-application.iml
+infrastructure/spring-based-app/spring-configuration/spring-configuration.iml
+infrastructure/spring-based-app/spring-database-repository/spring-database-repository.iml
+infrastructure/spring-based-app/spring-rest-services/spring-rest-services.iml
+infrastructure/spring-based-app/work-log-web/work-log-web.iml
+repository-interface/repository-interface.iml
