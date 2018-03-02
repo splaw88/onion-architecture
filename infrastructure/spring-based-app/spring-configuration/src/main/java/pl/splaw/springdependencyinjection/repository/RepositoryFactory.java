@@ -1,14 +1,15 @@
-package pl.splaw.onionarchitecture.springdependencyinjection.repository;
+package pl.splaw.springdependencyinjection.repository;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pl.splaw.onionarchitecture.databaserepository.mapper.DomainToEntityMapper;
-import pl.splaw.onionarchitecture.databaserepository.repository.WorkLogEntityRepository;
-import pl.splaw.onionarchitecture.databaserepository.repository.WorkerEntityRepository;
-import pl.splaw.onionarchitecture.databaserepository.repository.impl.WorkLogRepository;
-import pl.splaw.onionarchitecture.databaserepository.repository.impl.WorkerRepository;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkLogRepositoryI;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkerRepositoryI;
+import pl.splaw.databaserepository.mapper.DomainToEntityMapper;
+import pl.splaw.databaserepository.repository.WorkLogEntityRepository;
+import pl.splaw.databaserepository.repository.WorkerEntityRepository;
+import pl.splaw.databaserepository.repository.impl.WorkLogRepository;
+import pl.splaw.databaserepository.repository.impl.WorkerRepository;
+import pl.splaw.repositoryinterface.repository.WorkLogRepositoryI;
+import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
+
 
 /**
  *

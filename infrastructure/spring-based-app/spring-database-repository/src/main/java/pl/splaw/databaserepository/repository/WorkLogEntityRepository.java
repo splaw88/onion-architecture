@@ -1,10 +1,12 @@
-package pl.splaw.onionarchitecture.databaserepository.repository;
+package pl.splaw.databaserepository.repository;
 
-import java.util.List;
-import pl.splaw.onionarchitecture.databaserepository.model.WorkLogEntity;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
-import pl.splaw.onionarchitecture.databaserepository.model.WorkerEntity;
+import pl.splaw.databaserepository.model.WorkLogEntity;
+import pl.splaw.databaserepository.model.WorkerEntity;
+
+import java.util.List;
 
 /**
  *

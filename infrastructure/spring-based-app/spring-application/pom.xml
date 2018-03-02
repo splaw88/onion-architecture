@@ -26,14 +26,6 @@
         </dependency>
         <dependency>
             <groupId>pl.splaw.onionarchitecture</groupId>
-            <artifactId>repository-interface</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>pl.splaw.onionarchitecture</groupId>
-            <artifactId>application-services</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>pl.splaw.onionarchitecture</groupId>
             <artifactId>application-logic</artifactId>
         </dependency>
         <dependency>
@@ -48,10 +40,10 @@
             <groupId>pl.splaw.onionarchitecture</groupId>
             <artifactId>spring-rest-services</artifactId>
         </dependency>
-        <dependency>
-            <groupId>pl.splaw.onionarchitecture</groupId>
-            <artifactId>work-log-web</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>pl.splaw.onionarchitecture</groupId>-->
+            <!--<artifactId>work-log-web</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
     <build>
         <plugins>

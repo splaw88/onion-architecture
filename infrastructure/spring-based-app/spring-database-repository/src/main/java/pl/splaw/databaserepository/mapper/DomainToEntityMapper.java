@@ -1,10 +1,11 @@
-package pl.splaw.onionarchitecture.databaserepository.mapper;
+package pl.splaw.databaserepository.mapper;
+
+import pl.splaw.databaserepository.model.WorkLogEntity;
+import pl.splaw.databaserepository.model.WorkerEntity;
+import pl.splaw.domain.model.WorkLog;
+import pl.splaw.domain.model.Worker;
 
 import java.time.ZoneId;
-import pl.splaw.onionarchitecture.domain.model.WorkLog;
-import pl.splaw.onionarchitecture.domain.model.Worker;
-import pl.splaw.onionarchitecture.databaserepository.model.WorkLogEntity;
-import pl.splaw.onionarchitecture.databaserepository.model.WorkerEntity;
 
 /**
  *

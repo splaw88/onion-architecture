@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.splaw.onionarchitecture.domain.model.Worker;
+import pl.splaw.domain.model.Worker;
 import pl.splaw.onionarchitecture.springrestservices.serializer.LocalDateSerializer;
 
 /**

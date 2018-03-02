@@ -1,9 +1,10 @@
-package pl.splaw.onionarchitecture.domain.model;
+package pl.splaw.domain.model;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
 
 /**
  *

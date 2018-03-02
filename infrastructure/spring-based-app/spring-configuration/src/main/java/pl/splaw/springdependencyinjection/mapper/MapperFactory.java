@@ -1,10 +1,11 @@
-package pl.splaw.onionarchitecture.springdependencyinjection.mapper;
+package pl.splaw.springdependencyinjection.mapper;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pl.splaw.onionarchitecture.databaserepository.mapper.DomainToEntityMapper;
+import pl.splaw.databaserepository.mapper.DomainToEntityMapper;
 import pl.splaw.onionarchitecture.springrestservices.mapper.DomainToResponseMapper;
 import pl.splaw.onionarchitecture.springrestservices.mapper.RequestsToDomainMapper;
+
 
 /**
  *

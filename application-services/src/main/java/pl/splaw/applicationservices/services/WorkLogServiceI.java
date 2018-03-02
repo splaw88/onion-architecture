@@ -1,9 +1,10 @@
-package pl.splaw.onionarchitecture.applicationservices.services;
+package pl.splaw.applicationservices.services;
+
+
+import pl.splaw.domain.model.WorkLog;
+import pl.splaw.domain.model.Worker;
 
 import java.util.List;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
-import pl.splaw.onionarchitecture.domain.model.WorkLog;
-import pl.splaw.onionarchitecture.domain.model.Worker;
 
 /**
  *
@@ -11,14 +12,14 @@ import pl.splaw.onionarchitecture.domain.model.Worker;
  */
 public interface WorkLogServiceI {
 
-    WorkLog logWork(WorkLog workLog) throws BaseException;
+    WorkLog logWork(WorkLog workLog) throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
 
-    WorkLog editWorkLog(Long id, WorkLog workLog) throws BaseException;
+    WorkLog editWorkLog(Long id, WorkLog workLog) throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
 
-    WorkLog deleteWorkLog(Long workLogId) throws BaseException;
+    WorkLog deleteWorkLog(Long workLogId) throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
 
     List<WorkLog> reportWorkerWork(Worker worker);
 
-    WorkLog findWorkLogById(Long id) throws BaseException;
+    WorkLog findWorkLogById(Long id) throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
 
 }

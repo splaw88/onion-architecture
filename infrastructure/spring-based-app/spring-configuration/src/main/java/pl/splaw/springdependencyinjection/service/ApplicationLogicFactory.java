@@ -1,13 +1,14 @@
-package pl.splaw.onionarchitecture.springdependencyinjection.service;
+package pl.splaw.springdependencyinjection.service;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkLogService;
-import pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerService;
-import pl.splaw.onionarchitecture.applicationservices.services.WorkLogServiceI;
-import pl.splaw.onionarchitecture.applicationservices.services.WorkerServiceI;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkLogRepositoryI;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkerRepositoryI;
+import pl.splaw.applicationlogic.services.impl.WorkLogService;
+import pl.splaw.applicationlogic.services.impl.WorkerService;
+import pl.splaw.applicationservices.services.WorkLogServiceI;
+import pl.splaw.applicationservices.services.WorkerServiceI;
+import pl.splaw.repositoryinterface.repository.WorkLogRepositoryI;
+import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
+
 
 /**
  *

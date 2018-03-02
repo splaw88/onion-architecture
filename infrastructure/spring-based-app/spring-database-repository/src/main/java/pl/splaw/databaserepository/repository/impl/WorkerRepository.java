@@ -1,13 +1,13 @@
-package pl.splaw.onionarchitecture.databaserepository.repository.impl;
+package pl.splaw.databaserepository.repository.impl;
 
 import javax.inject.Inject;
 import org.springframework.transaction.annotation.Transactional;
-import pl.splaw.onionarchitecture.domain.model.Worker;
-import pl.splaw.onionarchitecture.databaserepository.mapper.DomainToEntityMapper;
-import pl.splaw.onionarchitecture.databaserepository.model.WorkerEntity;
-import pl.splaw.onionarchitecture.databaserepository.repository.WorkLogEntityRepository;
-import pl.splaw.onionarchitecture.databaserepository.repository.WorkerEntityRepository;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkerRepositoryI;
+import pl.splaw.databaserepository.mapper.DomainToEntityMapper;
+import pl.splaw.databaserepository.model.WorkerEntity;
+import pl.splaw.databaserepository.repository.WorkLogEntityRepository;
+import pl.splaw.databaserepository.repository.WorkerEntityRepository;
+import pl.splaw.domain.model.Worker;
+import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
 
 /**
  *

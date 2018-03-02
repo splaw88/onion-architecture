@@ -1,13 +1,15 @@
-package pl.splaw.onionarchitecture.databaserepository.repository.impl;
+package pl.splaw.databaserepository.repository.impl;
 
+
+import pl.splaw.databaserepository.mapper.DomainToEntityMapper;
+import pl.splaw.databaserepository.repository.WorkLogEntityRepository;
+import pl.splaw.domain.model.WorkLog;
+import pl.splaw.domain.model.Worker;
+import pl.splaw.repositoryinterface.repository.WorkLogRepositoryI;
+
+import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.inject.Inject;
-import pl.splaw.onionarchitecture.domain.model.WorkLog;
-import pl.splaw.onionarchitecture.domain.model.Worker;
-import pl.splaw.onionarchitecture.databaserepository.mapper.DomainToEntityMapper;
-import pl.splaw.onionarchitecture.databaserepository.repository.WorkLogEntityRepository;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkLogRepositoryI;
 
 /**
  *

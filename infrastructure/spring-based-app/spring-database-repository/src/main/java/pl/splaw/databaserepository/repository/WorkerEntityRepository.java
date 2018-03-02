@@ -1,7 +1,8 @@
-package pl.splaw.onionarchitecture.databaserepository.repository;
+package pl.splaw.databaserepository.repository;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.splaw.onionarchitecture.databaserepository.model.WorkerEntity;
+import pl.splaw.databaserepository.model.WorkerEntity;
 
 /**
  *

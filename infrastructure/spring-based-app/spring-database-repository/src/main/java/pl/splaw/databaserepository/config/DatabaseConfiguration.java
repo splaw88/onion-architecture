@@ -1,4 +1,4 @@
-package pl.splaw.onionarchitecture.databaserepository.config;
+package pl.splaw.databaserepository.config;
 
 import javax.sql.DataSource;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -8,8 +8,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import pl.splaw.onionarchitecture.databaserepository.model.EntityScanMarker;
-import pl.splaw.onionarchitecture.databaserepository.repository.RepositoryScanMarker;
+import pl.splaw.databaserepository.model.EntityScanMarker;
+import pl.splaw.databaserepository.repository.RepositoryScanMarker;
+
 
 /**
  *

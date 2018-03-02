@@ -10,15 +10,12 @@
     <groupId>pl.splaw.onionarchitecture</groupId>
     <artifactId>spring-configuration</artifactId>
     <name>SpringConfiguration</name>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>4.3.14.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>pl.splaw.onionarchitecture</groupId>
-            <artifactId>application-services</artifactId>
         </dependency>
         <dependency>
             <groupId>pl.splaw.onionarchitecture</groupId>
@@ -33,6 +30,7 @@
             <artifactId>spring-rest-services</artifactId>
         </dependency>
     </dependencies>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>

@@ -1,4 +1,4 @@
-package pl.splaw.onionarchitecture.databaserepository.repository;
+package pl.splaw.databaserepository.repository;
 
 /**
  *

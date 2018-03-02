@@ -1,8 +1,10 @@
-package pl.splaw.onionarchitecture.repositoryinterface.repository;
+package pl.splaw.repositoryinterface.repository;
+
+
+import pl.splaw.domain.model.WorkLog;
+import pl.splaw.domain.model.Worker;
 
 import java.util.List;
-import pl.splaw.onionarchitecture.domain.model.WorkLog;
-import pl.splaw.onionarchitecture.domain.model.Worker;
 
 /**
  *

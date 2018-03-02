@@ -1,7 +1,8 @@
 package pl.splaw.onionarchitecture.springrestservices.mapper;
 
-import pl.splaw.onionarchitecture.domain.model.WorkLog;
-import pl.splaw.onionarchitecture.domain.model.Worker;
+
+import pl.splaw.domain.model.WorkLog;
+import pl.splaw.domain.model.Worker;
 import pl.splaw.onionarchitecture.springrestservices.dto.worker.EditWorkerRequest;
 import pl.splaw.onionarchitecture.springrestservices.dto.worker.NewWorkerRequest;
 import pl.splaw.onionarchitecture.springrestservices.dto.worklog.NewWorkLogRequest;

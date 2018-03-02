@@ -1,4 +1,4 @@
-package pl.splaw.onionarchitecture.databaserepository.model;
+package pl.splaw.databaserepository.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

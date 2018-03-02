@@ -2,7 +2,8 @@ package pl.splaw.onionarchitecture.springrestservices.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import pl.splaw.onionarchitecture.domain.model.WorkLog;
+
+import pl.splaw.domain.model.WorkLog;
 import pl.splaw.onionarchitecture.springrestservices.dto.worklog.WorkLogResponse;
 
 /**

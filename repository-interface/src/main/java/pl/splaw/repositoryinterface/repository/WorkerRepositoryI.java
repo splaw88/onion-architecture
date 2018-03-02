@@ -1,6 +1,7 @@
-package pl.splaw.onionarchitecture.repositoryinterface.repository;
+package pl.splaw.repositoryinterface.repository;
 
-import pl.splaw.onionarchitecture.domain.model.Worker;
+
+import pl.splaw.domain.model.Worker;
 
 /**
  *
