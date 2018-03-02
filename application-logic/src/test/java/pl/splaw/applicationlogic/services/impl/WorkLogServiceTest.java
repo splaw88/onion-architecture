@@ -1,21 +1,19 @@
-package pl.splaw.onionarchitecture.applicationlogic.services.implementation;
+package pl.splaw.applicationlogic.services.impl;
+
+
+import org.junit.Before;
+import org.junit.Test;
+import pl.splaw.domain.model.WorkLog;
+import pl.splaw.repositoryinterface.repository.WorkLogRepositoryI;
+import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
 
 import java.time.LocalDate;
 import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.junit.Before;
-import org.junit.Test;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.exisitngWorker;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.nonExisitngWorker;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogDontExistException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogStartDateException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogTimeSpentException;
-import pl.splaw.onionarchitecture.domain.model.WorkLog;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkLogRepositoryI;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkerRepositoryI;
+import static pl.splaw.applicationlogic.services.impl.WorkLogRepositoryStub.*;
+import static pl.splaw.applicationlogic.services.impl.WorkerRepositoryStub.*;
 
 /**
  *
@@ -29,15 +27,15 @@ public class WorkLogServiceTest {
 
     @Before
     public void init() {
-        workerRepositoryI = new WorkerRepositoryStub(exisitngWorker());
-        workLogRepositoryI = new WorkLogRepositoryStub(WorkLogRepositoryStub.workLogWithExistingWorker(1l));
+        workerRepositoryI = new WorkerRepositoryStub(existingWorker());
+        workLogRepositoryI = new WorkLogRepositoryStub(workLogWithExistingWorker(1l));
         workLogService = new WorkLogService(workLogRepositoryI, workerRepositoryI);
     }
 
     @Test
-    public void logWork_Success() throws BaseException {
+    public void logWork_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
-        WorkLog newWorkLog = WorkLogRepositoryStub.workLogWithExistingWorker(2l);
+        WorkLog newWorkLog = workLogWithExistingWorker(2l);
         WorkLog result = workLogService.logWork(newWorkLog);
 
         assertEquals(newWorkLog.getWorkLogId(), result.getWorkLogId());
@@ -49,10 +47,10 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = WorkerDontExistsException.class)
-    public void logWork_WorkerDontExist() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException.class)
+    public void logWork_WorkerDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
-        WorkLog newWorkLog = WorkLogRepositoryStub.workLogWithNonExistingWorker(2l);
+        WorkLog newWorkLog = workLogWithNonExistingWorker(2l);
         WorkLog result = workLogService.logWork(newWorkLog);
 
         assertEquals(newWorkLog.getWorkLogId(), result.getWorkLogId());
@@ -64,10 +62,10 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = WorkLogStartDateException.class)
-    public void logWork_StartDateFromFuture() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogStartDateException.class)
+    public void logWork_StartDateFromFuture() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
-        WorkLog newWorkLog = WorkLogRepositoryStub.workLogWithExistingWorker(2l, LocalDate.MAX);
+        WorkLog newWorkLog = workLogWithExistingWorker(2l, LocalDate.MAX);
         WorkLog result = workLogService.logWork(newWorkLog);
 
         assertEquals(newWorkLog.getWorkLogId(), result.getWorkLogId());
@@ -79,10 +77,10 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = WorkLogTimeSpentException.class)
-    public void logWork_NegativeTimeSpent() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogTimeSpentException.class)
+    public void logWork_NegativeTimeSpent() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
-        WorkLog newWorkLog = WorkLogRepositoryStub.workLogWithExistingWorker(2l, -1);
+        WorkLog newWorkLog = workLogWithExistingWorker(2l, -1);
         WorkLog result = workLogService.logWork(newWorkLog);
 
         assertEquals(newWorkLog.getWorkLogId(), result.getWorkLogId());
@@ -95,9 +93,9 @@ public class WorkLogServiceTest {
     }
 
     @Test
-    public void editWorkLog_Success() throws BaseException {
+    public void editWorkLog_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
-        WorkLog editedWorkLog = WorkLogRepositoryStub.workLogWithExistingWorker(2l);
+        WorkLog editedWorkLog = workLogWithExistingWorker(2l);
         WorkLog result = workLogService.editWorkLog(1l, editedWorkLog);
 
         assertEquals(Long.valueOf(1l), result.getWorkLogId());
@@ -109,10 +107,10 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = WorkLogDontExistException.class)
-    public void editWorkLog_WorkLogDontExist() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogDontExistException.class)
+    public void editWorkLog_WorkLogDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
-        WorkLog editedWorkLog = WorkLogRepositoryStub.workLogWithNonExistingWorker(2l);
+        WorkLog editedWorkLog = workLogWithNonExistingWorker(2l);
         WorkLog result = workLogService.editWorkLog(2l, editedWorkLog);
 
         assertEquals(editedWorkLog.getWorkLogId(), result.getWorkLogId());
@@ -124,10 +122,10 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = WorkLogStartDateException.class)
-    public void editWorkLog_StartDateFromFuture() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogStartDateException.class)
+    public void editWorkLog_StartDateFromFuture() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
-        WorkLog editedWorkLog = WorkLogRepositoryStub.workLogWithExistingWorker(2l, LocalDate.MAX);
+        WorkLog editedWorkLog = workLogWithExistingWorker(2l, LocalDate.MAX);
         WorkLog result = workLogService.editWorkLog(1l, editedWorkLog);
 
         assertEquals(editedWorkLog.getWorkLogId(), result.getWorkLogId());
@@ -139,10 +137,10 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = WorkLogTimeSpentException.class)
-    public void editWorkLog_NegativeTimeSpent() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogTimeSpentException.class)
+    public void editWorkLog_NegativeTimeSpent() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
-        WorkLog editedWorkLog = WorkLogRepositoryStub.workLogWithExistingWorker(2l, -1);
+        WorkLog editedWorkLog = workLogWithExistingWorker(2l, -1);
         WorkLog result = workLogService.editWorkLog(1l, editedWorkLog);
 
         assertEquals(editedWorkLog.getWorkLogId(), result.getWorkLogId());
@@ -155,7 +153,7 @@ public class WorkLogServiceTest {
     }
 
     @Test
-    public void deleteWorkLog_Success() throws BaseException {
+    public void deleteWorkLog_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
         WorkLog existingWorkLog = getWorkLogRepositoryStub().getWorkLogList().stream().findAny().get();
         WorkLog result = workLogService.deleteWorkLog(1l);
@@ -169,13 +167,13 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = WorkLogDontExistException.class)
-    public void deleteWorkLog_WorkLogDontExist() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogDontExistException.class)
+    public void deleteWorkLog_WorkLogDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
         workLogService.deleteWorkLog(2l);
     }
 
     @Test
-    public void findWorkLogById_Success() throws BaseException {
+    public void findWorkLogById_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
         WorkLog existingWorkLog = getWorkLogRepositoryStub().getWorkLogList().stream().findAny().get();
         WorkLog result = workLogService.findWorkLogById(1l);
@@ -189,16 +187,16 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = WorkLogDontExistException.class)
-    public void findWorkLogById_WorkLogDontExist() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogDontExistException.class)
+    public void findWorkLogById_WorkLogDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
         workLogService.findWorkLogById(2l);
     }
 
     @Test
-    public void reportWorkerWorkLogs_Success() throws BaseException {
+    public void reportWorkerWorkLogs_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
 
         WorkLog existingWorkLog = getWorkLogRepositoryStub().getWorkLogList().stream().findAny().get();
-        List<WorkLog> resultList = workLogService.reportWorkerWork(exisitngWorker());
+        List<WorkLog> resultList = workLogService.reportWorkerWork(existingWorker());
 
         assertEquals(1, resultList.size());
 
@@ -214,8 +212,8 @@ public class WorkLogServiceTest {
     }
 
     @Test
-    public void reportWorkerWorkLogs_NoWorkLogs() throws BaseException {
-        List<WorkLog> resultList = workLogService.reportWorkerWork(nonExisitngWorker());
+    public void reportWorkerWorkLogs_NoWorkLogs() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+        List<WorkLog> resultList = workLogService.reportWorkerWork(nonExistingWorker());
         assertTrue(resultList.isEmpty());
     }
 

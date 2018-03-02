@@ -1,4 +1,4 @@
-package pl.splaw.onionarchitecture.applicationservices.exceptions;
+package pl.splaw.applicationservices.exceptions;
 
 /**
  *

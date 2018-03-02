@@ -19,6 +19,10 @@
         </dependency>
         <dependency>
             <groupId>pl.splaw.onionarchitecture</groupId>
+            <artifactId>application-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>pl.splaw.onionarchitecture</groupId>
             <artifactId>application-logic</artifactId>
         </dependency>
         <dependency>

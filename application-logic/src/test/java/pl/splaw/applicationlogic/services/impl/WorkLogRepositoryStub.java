@@ -1,4 +1,9 @@
-package pl.splaw.onionarchitecture.applicationlogic.services.implementation;
+package pl.splaw.applicationlogic.services.impl;
+
+import lombok.Getter;
+import pl.splaw.domain.model.WorkLog;
+import pl.splaw.domain.model.Worker;
+import pl.splaw.repositoryinterface.repository.WorkLogRepositoryI;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
@@ -6,12 +11,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import lombok.Getter;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.exisitngWorker;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.nonExisitngWorker;
-import pl.splaw.onionarchitecture.domain.model.WorkLog;
-import pl.splaw.onionarchitecture.domain.model.Worker;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkLogRepositoryI;
+
+import static pl.splaw.applicationlogic.services.impl.WorkerRepositoryStub.existingWorker;
+import static pl.splaw.applicationlogic.services.impl.WorkerRepositoryStub.nonExistingWorker;
+
 
 /**
  *
@@ -23,19 +26,19 @@ public class WorkLogRepositoryStub implements WorkLogRepositoryI {
     private final List<WorkLog> workLogList;
 
     public static WorkLog workLogWithExistingWorker(Long id) {
-        return newWroklog(id, LocalDate.now(), BigInteger.valueOf(1000l), exisitngWorker());
+        return newWroklog(id, LocalDate.now(), BigInteger.valueOf(1000l), existingWorker());
     }
     
     public static WorkLog workLogWithExistingWorker(Long id, LocalDate startDate) {
-        return newWroklog(id, startDate, BigInteger.valueOf(1000l), exisitngWorker());
+        return newWroklog(id, startDate, BigInteger.valueOf(1000l), existingWorker());
     }
     
     public static WorkLog workLogWithExistingWorker(Long id, Integer timeSpent) {
-        return newWroklog(id, LocalDate.now(), BigInteger.valueOf(timeSpent.longValue()), exisitngWorker());
+        return newWroklog(id, LocalDate.now(), BigInteger.valueOf(timeSpent.longValue()), existingWorker());
     }
 
     public static WorkLog workLogWithNonExistingWorker(Long id) {
-        return newWroklog(id, LocalDate.now(), BigInteger.TEN, nonExisitngWorker());
+        return newWroklog(id, LocalDate.now(), BigInteger.TEN, nonExistingWorker());
     }
 
     private static WorkLog newWroklog(Long id, LocalDate startDate, BigInteger timeSpent, Worker worker) {

@@ -1,19 +1,22 @@
-package pl.splaw.onionarchitecture.applicationlogic.services.implementation;
+package pl.splaw.applicationlogic.services.impl;
 
+import pl.splaw.applicationservices.exceptions.BaseException;
+import pl.splaw.applicationservices.exceptions.worker.WorkerDontExistsException;
+import pl.splaw.applicationservices.exceptions.worklog.WorkLogDontExistException;
+import pl.splaw.applicationservices.exceptions.worklog.WorkLogStartDateException;
+import pl.splaw.applicationservices.exceptions.worklog.WorkLogTimeSpentException;
+import pl.splaw.applicationservices.services.WorkLogServiceI;
+import pl.splaw.domain.model.WorkLog;
+import pl.splaw.domain.model.Worker;
+
+import pl.splaw.repositoryinterface.repository.WorkLogRepositoryI;
+import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
+
+import javax.inject.Inject;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.List;
-import javax.inject.Inject;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogDontExistException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogStartDateException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogTimeSpentException;
-import pl.splaw.onionarchitecture.applicationservices.services.WorkLogServiceI;
-import pl.splaw.onionarchitecture.domain.model.WorkLog;
-import pl.splaw.onionarchitecture.domain.model.Worker;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkLogRepositoryI;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkerRepositoryI;
+
 
 /**
  *

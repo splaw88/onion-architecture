@@ -1,6 +1,7 @@
-package pl.splaw.onionarchitecture.applicationservices.exceptions.worklog;
+package pl.splaw.applicationservices.exceptions.worklog;
 
-import pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
+
+import pl.splaw.applicationservices.exceptions.BaseException;
 
 /**
  *

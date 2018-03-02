@@ -1,25 +1,13 @@
-package pl.splaw.onionarchitecture.applicationlogic.services.implementation;
+package pl.splaw.applicationlogic.services.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+
 import org.junit.Before;
 import org.junit.Test;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.EMAIL;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.EXISTING_LOGIN;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.NAME;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.NON_EXISTING_LOGIN;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.OTHER_EMAIL;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.OTHER_NAME;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.OTHER_SURNAME;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.SURNAME;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.exisitngWorker;
-import static pl.splaw.onionarchitecture.applicationlogic.services.implementation.WorkerRepositoryStub.nonExisitngWorker;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerExistsException;
-import pl.splaw.onionarchitecture.domain.model.Worker;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkerRepositoryI;
+import pl.splaw.domain.model.Worker;
+import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
+
+import static org.junit.Assert.*;
+import static pl.splaw.applicationlogic.services.impl.WorkerRepositoryStub.*;
 
 /**
  *
@@ -32,7 +20,7 @@ public class WorkerServiceTest {
 
     @Before
     public void init() {
-        workerRepositoryI = new WorkerRepositoryStub(exisitngWorker());
+        workerRepositoryI = new WorkerRepositoryStub(existingWorker());
         workerService = new WorkerService(workerRepositoryI);
     }
 
@@ -50,15 +38,15 @@ public class WorkerServiceTest {
         }
     }
 
-    @Test(expected = WorkerDontExistsException.class)
-    public void findWorker_WorkerDontExist() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException.class)
+    public void findWorker_WorkerDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
         workerService.findWorkerByLogin(NON_EXISTING_LOGIN);
     }
 
     @Test
     public void createWorker_Success() {
         try {
-            Worker newWorker = nonExisitngWorker();
+            Worker newWorker = nonExistingWorker();
             Worker result = workerService.createWorker(newWorker);
             assertEquals(newWorker.getLogin(), result.getLogin());
             assertEquals(newWorker.getName(), result.getName());
@@ -70,15 +58,15 @@ public class WorkerServiceTest {
         }
     }
 
-    @Test(expected = WorkerExistsException.class)
-    public void createWorker_WorkerExist() throws BaseException {
-        workerService.createWorker(exisitngWorker());
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerExistsException.class)
+    public void createWorker_WorkerExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+        workerService.createWorker(existingWorker());
     }
 
     @Test
     public void editWorker_Success() {
         try {
-            Worker editedWorker = nonExisitngWorker();
+            Worker editedWorker = nonExistingWorker();
             Worker result = workerService.editWorker(EXISTING_LOGIN, editedWorker);
             assertEquals(EXISTING_LOGIN, result.getLogin());
             assertEquals(OTHER_NAME, result.getName());
@@ -90,8 +78,8 @@ public class WorkerServiceTest {
         }
     }
 
-    @Test(expected = WorkerDontExistsException.class)
-    public void editWorker_WorkerDontExist() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException.class)
+    public void editWorker_WorkerDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
         workerService.editWorker(NON_EXISTING_LOGIN, null);
     }
 
@@ -110,8 +98,8 @@ public class WorkerServiceTest {
         }
     }
 
-    @Test(expected = WorkerDontExistsException.class)
-    public void deleteWorker_WorkerDontExist() throws BaseException {
+    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException.class)
+    public void deleteWorker_WorkerDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
         workerService.deleteWorker(NON_EXISTING_LOGIN);
     }
 

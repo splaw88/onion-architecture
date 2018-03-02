@@ -1,12 +1,15 @@
-package pl.splaw.onionarchitecture.applicationlogic.services.implementation;
+package pl.splaw.applicationlogic.services.impl;
+
+
+
+import pl.splaw.applicationservices.exceptions.BaseException;
+import pl.splaw.applicationservices.exceptions.worker.WorkerDontExistsException;
+import pl.splaw.applicationservices.exceptions.worker.WorkerExistsException;
+import pl.splaw.applicationservices.services.WorkerServiceI;
+import pl.splaw.domain.model.Worker;
+import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
 
 import javax.inject.Inject;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerExistsException;
-import pl.splaw.onionarchitecture.applicationservices.services.WorkerServiceI;
-import pl.splaw.onionarchitecture.domain.model.Worker;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkerRepositoryI;
 
 /**
  *

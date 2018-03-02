@@ -1,12 +1,14 @@
-package pl.splaw.onionarchitecture.applicationlogic.services.implementation;
+package pl.splaw.applicationlogic.services.impl;
+
+import lombok.Getter;
+import pl.splaw.domain.model.Worker;
+import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import lombok.Getter;
-import pl.splaw.onionarchitecture.domain.model.Worker;
-import pl.splaw.onionarchitecture.repositoryinterface.repository.WorkerRepositoryI;
+
 
 /**
  *
@@ -27,11 +29,11 @@ public class WorkerRepositoryStub implements WorkerRepositoryI {
     @Getter
     private final List<Worker> workerList;
 
-    public static Worker exisitngWorker() {
+    public static Worker existingWorker() {
         return new Worker(EXISTING_LOGIN, NAME, SURNAME, EMAIL);
     }
 
-    public static Worker nonExisitngWorker() {
+    public static Worker nonExistingWorker() {
         return new Worker(NON_EXISTING_LOGIN, OTHER_NAME, OTHER_SURNAME, OTHER_EMAIL);
     }
 

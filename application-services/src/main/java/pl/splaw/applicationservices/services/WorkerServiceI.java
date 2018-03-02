@@ -1,7 +1,7 @@
 package pl.splaw.applicationservices.services;
 
+import pl.splaw.applicationservices.exceptions.BaseException;
 import pl.splaw.domain.model.Worker;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
 
 /**
  *
