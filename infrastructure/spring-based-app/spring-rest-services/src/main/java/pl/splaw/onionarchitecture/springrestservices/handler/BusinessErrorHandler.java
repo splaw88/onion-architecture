@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerExistsException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogDontExistException;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogExistException;
+import pl.splaw.applicationservices.exceptions.BaseException;
+import pl.splaw.applicationservices.exceptions.worker.WorkerDontExistsException;
+import pl.splaw.applicationservices.exceptions.worker.WorkerExistsException;
+import pl.splaw.applicationservices.exceptions.worklog.WorkLogDontExistException;
+import pl.splaw.applicationservices.exceptions.worklog.WorkLogExistException;
+
 
 /**
  *
  * @author Bartek <https://github.com/splaw88>
  */
 @ControllerAdvice
-public class BussinessErrorHandler extends ResponseEntityExceptionHandler {
+public class BusinessErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {BaseException.class})
     protected ResponseEntity<Object> handleError(BaseException ex, WebRequest request) {

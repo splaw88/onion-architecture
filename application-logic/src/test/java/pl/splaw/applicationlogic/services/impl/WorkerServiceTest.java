@@ -3,6 +3,9 @@ package pl.splaw.applicationlogic.services.impl;
 
 import org.junit.Before;
 import org.junit.Test;
+import pl.splaw.applicationservices.exceptions.BaseException;
+import pl.splaw.applicationservices.exceptions.worker.WorkerDontExistsException;
+import pl.splaw.applicationservices.exceptions.worker.WorkerExistsException;
 import pl.splaw.domain.model.Worker;
 import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
 
@@ -38,8 +41,8 @@ public class WorkerServiceTest {
         }
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException.class)
-    public void findWorker_WorkerDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkerDontExistsException.class)
+    public void findWorker_WorkerDontExist() throws BaseException {
         workerService.findWorkerByLogin(NON_EXISTING_LOGIN);
     }
 
@@ -58,8 +61,8 @@ public class WorkerServiceTest {
         }
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerExistsException.class)
-    public void createWorker_WorkerExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkerExistsException.class)
+    public void createWorker_WorkerExist() throws BaseException {
         workerService.createWorker(existingWorker());
     }
 
@@ -78,8 +81,8 @@ public class WorkerServiceTest {
         }
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException.class)
-    public void editWorker_WorkerDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkerDontExistsException.class)
+    public void editWorker_WorkerDontExist() throws BaseException {
         workerService.editWorker(NON_EXISTING_LOGIN, null);
     }
 
@@ -98,8 +101,8 @@ public class WorkerServiceTest {
         }
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException.class)
-    public void deleteWorker_WorkerDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkerDontExistsException.class)
+    public void deleteWorker_WorkerDontExist() throws BaseException {
         workerService.deleteWorker(NON_EXISTING_LOGIN);
     }
 

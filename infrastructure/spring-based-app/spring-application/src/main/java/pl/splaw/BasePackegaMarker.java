@@ -1,4 +1,4 @@
-package pl.splaw.onionarchitecture;
+package pl.splaw;
 
 /**
  *

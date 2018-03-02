@@ -3,6 +3,11 @@ package pl.splaw.applicationlogic.services.impl;
 
 import org.junit.Before;
 import org.junit.Test;
+import pl.splaw.applicationservices.exceptions.BaseException;
+import pl.splaw.applicationservices.exceptions.worker.WorkerDontExistsException;
+import pl.splaw.applicationservices.exceptions.worklog.WorkLogDontExistException;
+import pl.splaw.applicationservices.exceptions.worklog.WorkLogStartDateException;
+import pl.splaw.applicationservices.exceptions.worklog.WorkLogTimeSpentException;
 import pl.splaw.domain.model.WorkLog;
 import pl.splaw.repositoryinterface.repository.WorkLogRepositoryI;
 import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
@@ -33,7 +38,7 @@ public class WorkLogServiceTest {
     }
 
     @Test
-    public void logWork_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    public void logWork_Success() throws BaseException {
 
         WorkLog newWorkLog = workLogWithExistingWorker(2l);
         WorkLog result = workLogService.logWork(newWorkLog);
@@ -47,8 +52,8 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worker.WorkerDontExistsException.class)
-    public void logWork_WorkerDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkerDontExistsException.class)
+    public void logWork_WorkerDontExist() throws BaseException {
 
         WorkLog newWorkLog = workLogWithNonExistingWorker(2l);
         WorkLog result = workLogService.logWork(newWorkLog);
@@ -62,8 +67,8 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogStartDateException.class)
-    public void logWork_StartDateFromFuture() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkLogStartDateException.class)
+    public void logWork_StartDateFromFuture() throws BaseException {
 
         WorkLog newWorkLog = workLogWithExistingWorker(2l, LocalDate.MAX);
         WorkLog result = workLogService.logWork(newWorkLog);
@@ -77,8 +82,8 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogTimeSpentException.class)
-    public void logWork_NegativeTimeSpent() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkLogTimeSpentException.class)
+    public void logWork_NegativeTimeSpent() throws BaseException {
 
         WorkLog newWorkLog = workLogWithExistingWorker(2l, -1);
         WorkLog result = workLogService.logWork(newWorkLog);
@@ -93,7 +98,7 @@ public class WorkLogServiceTest {
     }
 
     @Test
-    public void editWorkLog_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    public void editWorkLog_Success() throws BaseException {
 
         WorkLog editedWorkLog = workLogWithExistingWorker(2l);
         WorkLog result = workLogService.editWorkLog(1l, editedWorkLog);
@@ -107,8 +112,8 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogDontExistException.class)
-    public void editWorkLog_WorkLogDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkLogDontExistException.class)
+    public void editWorkLog_WorkLogDontExist() throws BaseException {
 
         WorkLog editedWorkLog = workLogWithNonExistingWorker(2l);
         WorkLog result = workLogService.editWorkLog(2l, editedWorkLog);
@@ -122,8 +127,8 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogStartDateException.class)
-    public void editWorkLog_StartDateFromFuture() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkLogStartDateException.class)
+    public void editWorkLog_StartDateFromFuture() throws BaseException {
 
         WorkLog editedWorkLog = workLogWithExistingWorker(2l, LocalDate.MAX);
         WorkLog result = workLogService.editWorkLog(1l, editedWorkLog);
@@ -137,8 +142,8 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogTimeSpentException.class)
-    public void editWorkLog_NegativeTimeSpent() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkLogTimeSpentException.class)
+    public void editWorkLog_NegativeTimeSpent() throws BaseException {
 
         WorkLog editedWorkLog = workLogWithExistingWorker(2l, -1);
         WorkLog result = workLogService.editWorkLog(1l, editedWorkLog);
@@ -153,7 +158,7 @@ public class WorkLogServiceTest {
     }
 
     @Test
-    public void deleteWorkLog_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    public void deleteWorkLog_Success() throws BaseException {
 
         WorkLog existingWorkLog = getWorkLogRepositoryStub().getWorkLogList().stream().findAny().get();
         WorkLog result = workLogService.deleteWorkLog(1l);
@@ -167,13 +172,13 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogDontExistException.class)
-    public void deleteWorkLog_WorkLogDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkLogDontExistException.class)
+    public void deleteWorkLog_WorkLogDontExist() throws BaseException {
         workLogService.deleteWorkLog(2l);
     }
 
     @Test
-    public void findWorkLogById_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    public void findWorkLogById_Success() throws BaseException {
 
         WorkLog existingWorkLog = getWorkLogRepositoryStub().getWorkLogList().stream().findAny().get();
         WorkLog result = workLogService.findWorkLogById(1l);
@@ -187,13 +192,13 @@ public class WorkLogServiceTest {
 
     }
 
-    @Test(expected = pl.splaw.onionarchitecture.applicationservices.exceptions.worklog.WorkLogDontExistException.class)
-    public void findWorkLogById_WorkLogDontExist() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    @Test(expected = WorkLogDontExistException.class)
+    public void findWorkLogById_WorkLogDontExist() throws BaseException {
         workLogService.findWorkLogById(2l);
     }
 
     @Test
-    public void reportWorkerWorkLogs_Success() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    public void reportWorkerWorkLogs_Success() throws BaseException {
 
         WorkLog existingWorkLog = getWorkLogRepositoryStub().getWorkLogList().stream().findAny().get();
         List<WorkLog> resultList = workLogService.reportWorkerWork(existingWorker());
@@ -212,7 +217,7 @@ public class WorkLogServiceTest {
     }
 
     @Test
-    public void reportWorkerWorkLogs_NoWorkLogs() throws pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException {
+    public void reportWorkerWorkLogs_NoWorkLogs() throws BaseException {
         List<WorkLog> resultList = workLogService.reportWorkerWork(nonExistingWorker());
         assertTrue(resultList.isEmpty());
     }

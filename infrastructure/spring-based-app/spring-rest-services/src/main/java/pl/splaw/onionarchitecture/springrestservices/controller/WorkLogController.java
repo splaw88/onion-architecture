@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.splaw.applicationservices.exceptions.BaseException;
 import pl.splaw.applicationservices.services.WorkLogServiceI;
 import pl.splaw.applicationservices.services.WorkerServiceI;
 import pl.splaw.domain.model.Worker;
-import pl.splaw.onionarchitecture.applicationservices.exceptions.BaseException;
 
 import pl.splaw.onionarchitecture.springrestservices.dto.worklog.NewWorkLogRequest;
 import pl.splaw.onionarchitecture.springrestservices.dto.worklog.UpdateWorkLogRequest;

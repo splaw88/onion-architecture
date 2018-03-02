@@ -1,8 +1,9 @@
-package pl.splaw.onionarchitecture.springapplication;
+package pl.splaw.springapplication;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import pl.splaw.onionarchitecture.BasePackegaMarker;
+import pl.splaw.BasePackegaMarker;
 
 /**
  *

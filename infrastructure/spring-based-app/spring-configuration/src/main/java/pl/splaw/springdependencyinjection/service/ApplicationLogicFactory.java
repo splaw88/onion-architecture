@@ -1,5 +1,6 @@
 package pl.splaw.springdependencyinjection.service;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.splaw.applicationlogic.services.impl.WorkLogService;
@@ -8,7 +9,6 @@ import pl.splaw.applicationservices.services.WorkLogServiceI;
 import pl.splaw.applicationservices.services.WorkerServiceI;
 import pl.splaw.repositoryinterface.repository.WorkLogRepositoryI;
 import pl.splaw.repositoryinterface.repository.WorkerRepositoryI;
-
 
 /**
  *
