@@ -14,7 +14,7 @@
         <module>spring-rest-services</module>
         <module>spring-application</module>
         <module>spring-configuration</module>
-        <!--<module>work-log-web</module>-->
+        <module>work-log-web</module>
     </modules>
     <dependencyManagement>
         <dependencies>

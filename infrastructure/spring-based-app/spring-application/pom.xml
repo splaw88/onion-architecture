@@ -44,10 +44,10 @@
             <groupId>pl.splaw.onionarchitecture</groupId>
             <artifactId>spring-rest-services</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>pl.splaw.onionarchitecture</groupId>-->
-            <!--<artifactId>work-log-web</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>pl.splaw.onionarchitecture</groupId>
+            <artifactId>work-log-web</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
