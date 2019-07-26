@@ -40,7 +40,8 @@ In this project I tried to implement some simple app to log work time. I tried t
 
 Currently there are 2 infrastructural implementations:
 1. based on spring boot, h2 in memory database, embedded Tomcat, Rest services and Angular2 web UI.
-2. simple runable console application with no DI containers, and simple inmemory repositories;
+2. simple runable console application with no DI containers, and simple inmemory repositories
+
 In the future ill write other infrastructure stack to prove point of strong decoupling.
 
 ### Building and running
