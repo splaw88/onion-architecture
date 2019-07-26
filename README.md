@@ -38,7 +38,9 @@ To read more visit Jeffrey's blog where he described it in more detail
 # This project
 In this project I tried to implement some simple app to log work time. I tried to make it not too complex so it's behaviour is not perfect but should be good example from architectural point.
 
-As you can see in tree structure there are some core modules containing app logic and currently one infrastructural implementation based on spring boot, h2 in memory database, embedded Tomcat, Rest services and Angular2 web UI.
+Currently there are 2 infrastructural implementations:
+1. based on spring boot, h2 in memory database, embedded Tomcat, Rest services and Angular2 web UI.
+2. simple runable console application with no DI containers, and simple inmemory repositories;
 In the future ill write other infrastructure stack to prove point of strong decoupling.
 
 ### Building and running
@@ -53,9 +55,14 @@ It will download npm to get angular and other web dependencies. Standard maven c
 mvn clean -Pnode_clean
 ```
 
-To run app simply run from spring-based-app module generated jar file, like
+To run Spring Boot web app simply run from spring-based-app module generated jar file, like
 ```
 java -jar infrastructure/spring-based-app/spring-application/target/spring-application-1.0-SNAPSHOT.jar
 ```
 it will run Tomcat on address local host:8080
-More description soon...
+
+
+To run console app also just run generated jar, like
+```
+java -jar infrastructure/console-based-app/console-application/target/console-application-1.0-SNAPSHOT.jar
+```
