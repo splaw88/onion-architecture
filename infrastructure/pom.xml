@@ -11,6 +11,7 @@
     <name>05-Infrastructure</name>
     <modules>
         <module>spring-based-app</module>
+        <module>console-based-app</module>
     </modules>
     <dependencyManagement>
         <dependencies>

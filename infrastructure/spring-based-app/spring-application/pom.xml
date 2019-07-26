@@ -26,10 +26,6 @@
         </dependency>
         <dependency>
             <groupId>pl.splaw.onionarchitecture</groupId>
-            <artifactId>repository-interface</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>pl.splaw.onionarchitecture</groupId>
             <artifactId>application-services</artifactId>
         </dependency>
         <dependency>
