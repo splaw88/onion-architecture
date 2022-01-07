@@ -4,14 +4,8 @@ import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,7 +22,8 @@ import lombok.Setter;
 public class WorkLogEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(sequenceName = "WORK_LOG_SEQUENCE", allocationSize = 1, name = "WORK_LOG_SEQUENCE")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "WORK_LOG_SEQUENCE")
     @Column(name = "work_log_id")
     private Long id;
     @Column(name = "start_date")
