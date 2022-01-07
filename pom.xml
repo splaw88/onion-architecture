@@ -27,6 +27,7 @@
         <version.spring-framework>5.3.14</version.spring-framework>
         <version.h2-database>2.0.206</version.h2-database>
         <version.liquibase>4.6.2</version.liquibase>
+        <version.junit>4.13.2</version.junit>
 
         <!--plugins-->
         <version.frontend-maven-plugin>1.12.1</version.frontend-maven-plugin>
@@ -97,6 +98,11 @@
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-core</artifactId>
                 <version>${version.liquibase}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version.junit}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
