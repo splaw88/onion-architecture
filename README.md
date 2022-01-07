@@ -10,7 +10,7 @@ Commonly used architecture is Layered Architecture and pretty often (too often a
 
 This architecture basically cut application most commonly to 3 layers: UI, business logic and data storage. Frameworks and other infrastructure elements are mixed in all layers.
 So what's wrong with that? Basically app is built on data store which often is strictly coupled to the way it's stored and infrastructure  standing behind it. Also building app strongly coupled to frameworks makes app strong dependent to it.
-This is NOT GOOD. Why? Well if app is going to live for just couple ears it probably won't be a problem but in long term apps you have to be aware that 3 party dependencies keep changing, they sometimes 'die' or there are released better alternatives.
+This is NOT GOOD. Why? Well if app is going to live for just couple years it probably won't be a problem but in long term apps you have to be aware that 3 party dependencies keep changing, they sometimes 'die' or there are released better alternatives.
 And it's all happening without our control. If you build your app on fundamentals like for example some database vendor and it loose support you will have to rewrite very big portion of your app to adapt it to new solution (or even entire app).
 This is very expensive and it may be cheaper to write new app abandoning current one. 
 

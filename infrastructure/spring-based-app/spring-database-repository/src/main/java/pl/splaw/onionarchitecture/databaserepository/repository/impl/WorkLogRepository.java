@@ -26,7 +26,7 @@ public class WorkLogRepository implements WorkLogRepositoryI {
 
     @Override
     public WorkLog findWorkLogById(Long id) {
-        return domainToEntityMapper.workLogEntityToWorkLog(workLogEntityRepository.findOne(id));
+        return domainToEntityMapper.workLogEntityToWorkLog(workLogEntityRepository.findWorkLogEntityById(id));
 
     }
 

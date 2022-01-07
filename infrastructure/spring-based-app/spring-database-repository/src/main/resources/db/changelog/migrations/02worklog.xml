@@ -6,15 +6,17 @@
            
     <changeSet id="new_worklogs" author="splaw" >
         <createTable schemaName="public" tableName="WORK_LOG">
-            <column name="work_log_id" type="int" autoIncrement="true">
-                <constraints primaryKey="true" />
+            <column name="work_log_id" type="NUMBER(19, 0)" >
+                <constraints primaryKey="true" primaryKeyName="WORK_LOG_PK"/>
             </column>
             <column name="start_date" type="DATE" />
             <column name="time_spent_in_seconds" type="BIGINT"/>
             <column name="description" type="varchar(255)"/>
             <column name="worker_login" type="varchar(255)"/>
         </createTable>
-        
+
+        <createSequence sequenceName="WORK_LOG_SEQUENCE" startValue="5"/>
+
         <addForeignKeyConstraint baseColumnNames="worker_login"
             baseTableName="WORK_LOG"
             constraintName="fk_login"
