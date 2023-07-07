@@ -25,7 +25,7 @@
         <version.asciitable>0.3.2</version.asciitable>
         <version.hibernate>5.6.3.Final</version.hibernate>
         <version.spring-framework>5.3.14</version.spring-framework>
-        <version.h2-database>2.1.210</version.h2-database>
+        <version.h2-database>2.2.220</version.h2-database>
         <version.liquibase>4.6.2</version.liquibase>
         <version.junit>4.13.2</version.junit>
 
